@@ -9,20 +9,21 @@ Write your code in this editor and press "Run" button to execute it.
 import speech_recognition as sr
 import pyttsx3
 
-# Initialize the text-to-speech engine
-engine = pyttsx3.init()
+# Initialize the text-to-speech engine as e
+e = pyttsx3.init()
 
 def speak(text):
-    engine.say(text)
-    engine.runAndWait()
+    e.say(text)
+    e.runAndWait()
 
 def listen():
-    recognizer = sr.Recognizer()
+  # Initializing recognizer as re
+    re = sr.Recognizer()
     with sr.Microphone() as source:
         print("Listening...")
-        audio = recognizer.listen(source)
+        audio = re.listen(source)
         try:
-            command = recognizer.recognize_google(audio)
+            command = re.recognize_google(audio)
             return command.lower()
         except sr.UnknownValueError:
             return "Sorry, I didn't understand that."
@@ -32,14 +33,15 @@ def listen():
 def main():
     speak("Hello! How can I help you today?")
     while True:
-        command = listen()
-        print(f"You said: {command}")
-        if 'exit' in command or 'quit' in command or 'stop' in command:
+      # intialising command as c
+        c = listen()
+        print(f"You said: {c}")
+        if 'exit' in c or 'quit' in c or 'stop' in c:
             speak("Goodbye!")
             break
-        elif 'hello' in command:
+        elif 'hello' in c:
             speak("Hello! How are you?")
-        elif 'your name' in command:
+        elif 'your name' in c:
             speak("I am your voice assistant.")
         else:
             speak("I am sorry, I don't know how to respond to that.")
